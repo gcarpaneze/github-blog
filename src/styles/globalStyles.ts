@@ -15,9 +15,4 @@ export const globalStyles = globalCss({
   'body, input, textarea, button': {
     fontFamily: 'Nunito, sans-serif',
   },
-
-  ':focus': {
-    outline: 'transparent',
-    boxShadow: '0 0 0 2px $brandBlue',
-  },
 })

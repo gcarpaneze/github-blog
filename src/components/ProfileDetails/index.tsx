@@ -15,6 +15,7 @@ interface UserProps {
   name: string
   company: string | null
   followers: number
+  bio: string | null
 }
 
 interface ProfileDetailsProps {
@@ -35,12 +36,7 @@ export function ProfileDetails({ user }: ProfileDetailsProps) {
           </a>
         </header>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ex
-          officiis ut nisi enim vitae, velit, saepe eligendi omnis dolorem
-          obcaecati repudiandae placeat ipsam tempore blanditiis incidunt quod
-          nobis magni!
-        </p>
+        {user?.bio && <p>{user?.bio}</p>}
 
         <footer>
           <div>

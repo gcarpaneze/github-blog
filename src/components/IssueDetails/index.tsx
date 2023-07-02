@@ -1,4 +1,8 @@
 import { useNavigate } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 import {
   FaCalendarDay,
@@ -8,52 +12,62 @@ import {
   FaRegShareFromSquare,
 } from 'react-icons/fa6'
 
-import { IssueDetailsContainer } from './styles'
+import { IssueProps } from '../../pages/Details'
 
-const user = {
-  id: '68884602',
-  login: 'gcarpaneze',
-  url: 'https://github.com/gcarpaneze',
-  name: 'Guilherme Carpaneze',
-  company: 'Microsoft',
-  followers: 0,
+import { IssueDetailsContainer, IssueTitle, IssueBody } from './styles'
+
+interface IssueDetailsProps {
+  issue: IssueProps
 }
 
-export function IssueDetails() {
+export function IssueDetails({ issue }: IssueDetailsProps) {
   const navigate = useNavigate()
   return (
-    <IssueDetailsContainer>
-      <header>
-        <button onClick={() => navigate('/')}>
-          <FaChevronLeft />
-          <span>VOLTAR</span>
-        </button>
-        <a href={user?.url}>
-          <span>GITHUB</span>
-          <FaRegShareFromSquare />
-        </a>
-      </header>
+    <>
+      <IssueDetailsContainer>
+        <IssueTitle>
+          <header>
+            <button onClick={() => navigate('/')}>
+              <FaChevronLeft />
+              <span>VOLTAR</span>
+            </button>
+            <a href={issue?.url}>
+              <span>GITHUB</span>
+              <FaRegShareFromSquare />
+            </a>
+          </header>
 
-      <section>
-        <h3>JavaScript data types and data structures</h3>
+          <h3>{issue?.title}</h3>
 
-        <footer>
-          <div>
-            <FaGithub />
-            <span>{user?.login}</span>
-          </div>
+          <footer>
+            <div>
+              <FaGithub />
+              <span>{issue?.login}</span>
+            </div>
 
-          <div>
-            <FaCalendarDay />
-            <span>Há 1 dia</span>
-          </div>
+            <div>
+              <FaCalendarDay />
+              <span>
+                {formatDistanceToNow(new Date(issue?.created_at), {
+                  addSuffix: true,
+                  locale: ptBR,
+                })}
+              </span>
+            </div>
 
-          <div>
-            <FaComment />
-            <span>5 comentários</span>
-          </div>
-        </footer>
-      </section>
-    </IssueDetailsContainer>
+            <div>
+              <FaComment />
+              <span>{issue?.comments} comentários</span>
+            </div>
+          </footer>
+        </IssueTitle>
+
+        <IssueBody>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {issue.body}
+          </ReactMarkdown>
+        </IssueBody>
+      </IssueDetailsContainer>
+    </>
   )
 }

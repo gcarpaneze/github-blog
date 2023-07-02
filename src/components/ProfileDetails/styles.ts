@@ -22,6 +22,7 @@ export const ProfileContainer = styled('div', {
   },
 
   section: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',

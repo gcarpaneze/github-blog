@@ -1,16 +1,22 @@
 import { styled } from '../../styles/stitches.config'
 
-export const IssueCardContainer = styled('div', {
+export const IssueCardContainer = styled('button', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'stretch',
   width: '26rem',
   height: '16.25rem',
   borderRadius: 10,
   background: '$basePost',
   padding: '2rem',
 
+  border: 0,
+  cursor: 'pointer',
+
   header: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: '1.25rem',
   },
 
@@ -19,6 +25,7 @@ export const IssueCardContainer = styled('div', {
     fontSize: '1.25rem',
     fontWeight: 'bold',
     lineHeight: 1.6,
+    textAlign: 'left',
   },
 
   span: {
@@ -36,5 +43,6 @@ export const IssueCardContainer = styled('div', {
     fontSize: '1rem',
     lineHeight: 1.6,
     color: '$baseText',
+    textAlign: 'left',
   },
 })

@@ -2,11 +2,15 @@ import { styled } from '../../styles/stitches.config'
 
 export const IssueDetailsContainer = styled('div', {
   width: '100%',
-  background: '$baseProfile',
+  display: 'flex',
+  flexDirection: 'column',
+})
+
+export const IssueTitle = styled('section', {
   borderRadius: 10,
+  background: '$baseProfile',
   boxShadow: '0px 2px 28px 0px rgba(0, 0, 0, 0.20);',
   height: '13.25rem',
-
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
@@ -62,34 +66,62 @@ export const IssueDetailsContainer = styled('div', {
     },
   },
 
-  section: {
-    h3: {
-      color: '$baseTitle',
-      fontSize: '1.5rem',
-      fontWeight: 'bold',
-      lineHeight: 1.3,
-    },
+  h3: {
+    color: '$baseTitle',
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    lineHeight: 1.3,
+  },
 
-    footer: {
+  footer: {
+    display: 'flex',
+    gap: '1.5rem',
+    marginTop: '1.5rem',
+
+    div: {
       display: 'flex',
-      gap: '1.5rem',
-      marginTop: '1.5rem',
-
-      div: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5rem',
-      },
-
-      svg: {
-        color: '$baseLabel',
-      },
-
-      span: {
-        fontSize: '1rem',
-        color: '$baseSubtitle',
-        lineHeight: 1.6,
-      },
+      alignItems: 'center',
+      gap: '0.5rem',
     },
+
+    svg: {
+      color: '$baseLabel',
+    },
+
+    span: {
+      fontSize: '1rem',
+      color: '$baseSubtitle',
+      lineHeight: 1.6,
+    },
+  },
+})
+
+export const IssueBody = styled('section', {
+  padding: '2.5rem 2rem',
+
+  p: {
+    color: '$baseText',
+    fontSize: '1rem',
+    lineHeight: 1.6,
+    marginBottom: '1rem',
+  },
+
+  h3: {
+    color: '$BrandBlue',
+    fontWeight: 'bold',
+    lineHeight: 1.6,
+    fontSize: '1rem',
+    textDecoration: 'underline',
+    marginBottom: '1rem',
+  },
+
+  code: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '1rem',
+    alignSelf: 'stretch',
+    borderRadius: 2,
+    background: '$basePost',
+    marginBottom: '1rem',
   },
 })

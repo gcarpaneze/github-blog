@@ -7,3 +7,13 @@ export const DetailsContainer = styled('main', {
   width: '54rem',
   alignItems: 'center',
 })
+
+export const LoaderContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  margin: 'auto',
+  marginTop: 'calc((100vh - 18.5rem)/2)',
+  width: '54rem',
+})

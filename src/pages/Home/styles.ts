@@ -1,11 +1,22 @@
 import { styled } from '../../styles/stitches.config'
 
+export const LoaderContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  margin: 'auto',
+  marginTop: 'calc((100vh - 18.5rem)/2)',
+  width: '54rem',
+})
+
 export const HomeContainer = styled('main', {
   display: 'flex',
   flexDirection: 'column',
   margin: '-5.5rem auto',
   width: '54rem',
   alignItems: 'center',
+  paddingBottom: '14rem',
 })
 
 export const SectionIssues = styled('section', {
@@ -31,6 +42,30 @@ export const SectionIssues = styled('section', {
       fontSize: '0.875rem',
       lineHeight: 1.6,
       textAlign: 'right',
+    },
+  },
+
+  form: {
+    display: 'flex',
+    gap: '0.5rem',
+
+    button: {
+      width: '4rem',
+      borderRadius: 6,
+      background: 'transparent',
+      color: '$baseText',
+      cursor: 'pointer',
+      border: '1px solid $baseBorder',
+
+      '&:focus': {
+        border: '1px solid $BrandBlue',
+      },
+
+      '&:hover': {
+        background: '$BrandBlue',
+        border: '$BrandBlue',
+        transition: '0.2s',
+      },
     },
   },
 
